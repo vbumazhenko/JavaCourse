@@ -5,8 +5,12 @@ public class App {
 
         System.out.println(text);
 
-        int sum = 0;
+        // Разобьем строку на массив строк так, чтобы в каждой строке была только одна сумма.
+        // В качестве разделителя будет выступать запятая и пробел, идущие подряд.
         String[] lines = text.split(",\\s");
+
+        // Выделим из каждого элемента массива только цифры и просуммируем их.
+        int sum = 0;
         for (String str : lines) {
             sum += Integer.parseInt(str.replaceAll("[^0-9]", ""));
         }
