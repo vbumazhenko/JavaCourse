@@ -18,6 +18,5 @@ public class App {
             calendar.add(Calendar.YEAR, 1);
             age++;
         }
-
     }
 }
