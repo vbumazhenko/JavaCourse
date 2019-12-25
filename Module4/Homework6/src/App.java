@@ -17,6 +17,7 @@ public class App {
             // К дате календаря прибавляем 1 год.
             calendar.add(Calendar.YEAR, 1);
             age++;
+
         }
     }
 }
