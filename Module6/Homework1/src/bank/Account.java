@@ -2,7 +2,9 @@ package bank;
 
 public class Account {
 
-    private double balance;
+    // protected - на случай, если понадобится изменить баланс при переопределении методов
+    // в классах-потомках. Сейчас это не требуется.
+    protected double balance;
 
     public Account(double sum) {
         balance = sum;
