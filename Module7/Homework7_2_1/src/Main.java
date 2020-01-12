@@ -27,8 +27,11 @@ public class Main
 //            System.out.println(staff.get(i));
 //        }
 
-        Stream.generate(() -> "fff").forEach(System.out::println);
-
+staff.stream()
+        .map(Employee::getSalary)
+        .filter(s -> s >= 100000)
+        .reduce((s1, s2) -> s1 + s2)
+        .ifPresent(System.out::println);
 
 
 
