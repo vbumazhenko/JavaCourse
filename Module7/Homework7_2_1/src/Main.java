@@ -14,26 +14,14 @@ public class Main
     {
         ArrayList<Employee> staff = loadStaffFromFile();
 
-        Collections.sort(staff, (o1, o2) -> {
-            int sortSalary = o1.getSalary().compareTo(o2.getSalary());
-            if (sortSalary != 0) {
-                return sortSalary;
-            } else {
-                return o1.getName().compareTo(o2.getName());
-            }
-        });
-
-//        for (int i = 0; i < staff.size(); i++) {
-//            System.out.println(staff.get(i));
-//        }
-
-staff.stream()
-        .map(Employee::getSalary)
-        .filter(s -> s >= 100000)
-        .reduce((s1, s2) -> s1 + s2)
-        .ifPresent(System.out::println);
-
-
+        staff.stream()
+                .filter(e -> {
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(e.getWorkStart());
+                    return calendar.get(Calendar.YEAR) == 2017;
+                })
+                .max(Comparator.comparing(Employee::getSalary))
+                .ifPresent(System.out::println);
 
     }
 
